@@ -4,7 +4,7 @@ import { Book } from '../shared/book';
 @Component({
   selector: 'bm-book-details',
   templateUrl: './book-details.component.html',
-  styleUrls: ['./book-details.component.css']
+  styleUrls: ['./book-details.component.css'],
 })
 export class BookDetailsComponent {
   @Input() book?: Book;
@@ -13,5 +13,4 @@ export class BookDetailsComponent {
   doLeave() {
     this.leave.emit();
   }
-
 }

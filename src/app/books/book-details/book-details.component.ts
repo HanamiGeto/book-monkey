@@ -1,5 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+/*eslint-disable @typescript-eslint/no-non-null-assertion*/
+
+import { Component } from '@angular/core';
 import { Book } from '../../shared/book';
+import { BookStoreService } from 'src/app/shared/book-store.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'bm-book-details',
@@ -7,10 +11,13 @@ import { Book } from '../../shared/book';
   styleUrls: ['./book-details.component.css'],
 })
 export class BookDetailsComponent {
-  @Input() book?: Book;
-  @Output() leave = new EventEmitter<void>();
+  book?: Book;
 
-  doLeave() {
-    this.leave.emit();
+  constructor(
+    private service: BookStoreService,
+    private route: ActivatedRoute,
+  ) {
+    const isbn = this.route.snapshot.paramMap.get('isbn')!;
+    this.book = this.service.getSingle(isbn);
   }
 }

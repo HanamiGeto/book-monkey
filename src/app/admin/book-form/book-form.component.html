@@ -1,16 +1,20 @@
-<form (ngSubmit)="submitForm()" #form="ngForm">
+<form [formGroup]="form" (ngSubmit)="submitForm()">
   <label for="title">Title</label>
-  <input name="title" id="title" [(ngModel)]="book.title" required />
+  <input id="title" formControlName="title" />
+  <label for="subtitle">Subtitle</label>
+  <input id="subtitle" formControlName="subtitle" />
   <label for="isbn">ISBN</label>
+  <input id="isbn" formControlName="isbn" />
+  <label for="description">Description</label>
+  <textarea id="description" formControlName="description"></textarea>
+  <label for="published">Published</label>
   <input
-    name="isbn"
-    id="isbn"
-    [(ngModel)]="book.isbn"
-    required
-    minlength="10"
-    maxlength="13"
+    type="date"
+    useValueAsLocalIso
+    id="published"
+    formControlName="published"
   />
-  <label for="author">Author</label>
-  <input name="author" id="author" [(ngModel)]="book.authors[0]" required />
+  <label for="thumbnailUrl">Thumbnail URL</label>
+  <input type="url" id="thumbnailUrl" formControlName="thumbnailUrl" />
   <button type="submit" [disabled]="form.invalid">Save</button>
 </form>

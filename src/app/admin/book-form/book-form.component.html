@@ -5,6 +5,17 @@
   <input id="subtitle" formControlName="subtitle" />
   <label for="isbn">ISBN</label>
   <input id="isbn" formControlName="isbn" />
+  <label>Authors</label>
+  <button type="button" class="add" (click)="addAuthorControl()">
+    + Author
+  </button>
+  <fieldset formArrayName="authors">
+    <input
+      *ngFor="let a of authors.controls; index as i"
+      [attr.aria-label]="'Author' + i"
+      [formControlName]="i"
+    />
+  </fieldset>
   <label for="description">Description</label>
   <textarea id="description" formControlName="description"></textarea>
   <label for="published">Published</label>

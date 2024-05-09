@@ -1,8 +1,8 @@
 <h1>Books</h1>
 
-<ul class="book-list">
-  <li *ngFor="let book of books">
-    <bm-book-list-item [book]="book"></bm-book-list-item>
+<ul class="book-list" *ngIf="books$ | async as books">
+  <li *ngFor="let b of books">
+    <bm-book-list-item [book]="b"></bm-book-list-item>
   </li>
   <li *ngIf="!books.length">No books available.</li>
 </ul>

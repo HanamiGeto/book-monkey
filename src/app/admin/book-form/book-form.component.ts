@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Book } from 'src/app/shared/book';
-import { atLeastOneValue } from '../shared/validators';
+import { atLeastOneValue, isbnFormat } from '../shared/validators';
 
 @Component({
   selector: 'bm-book-form',
@@ -26,11 +26,7 @@ export class BookFormComponent implements OnChanges {
     subtitle: new FormControl('', { nonNullable: true }),
     isbn: new FormControl('', {
       nonNullable: true,
-      validators: [
-        Validators.required,
-        Validators.minLength(10),
-        Validators.maxLength(13),
-      ],
+      validators: [Validators.required, isbnFormat],
     }),
     description: new FormControl('', { nonNullable: true }),
     published: new FormControl('', { nonNullable: true }),

@@ -5,10 +5,11 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from './auth.service';
 
 @Directive({
   selector: '[bmLoggedinOnly]',
+  standalone: true,
 })
 export class LoggedinOnlyDirective implements OnDestroy {
   private destroy$ = new Subject<void>();

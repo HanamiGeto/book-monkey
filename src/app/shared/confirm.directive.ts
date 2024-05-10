@@ -8,6 +8,7 @@ import {
 
 @Directive({
   selector: '[bmConfirm]',
+  standalone: true,
 })
 export class ConfirmDirective {
   @Input('bmConfirm') confirmText?: string;

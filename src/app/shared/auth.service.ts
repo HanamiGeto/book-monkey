@@ -19,5 +19,4 @@ export class AuthService {
   logout() {
     this._isAuthenticated$.next(false);
   }
-  // constructor() {}
 }

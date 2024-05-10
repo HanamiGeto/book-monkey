@@ -8,7 +8,7 @@ export const atLeastOneValue: ValidatorFn = function (control) {
   if (control.controls.some((el) => !!el.value)) {
     return null;
   } else {
-    return { atLeastOneValue: true };
+    return { atleastonevalue: true };
   }
 };
 
@@ -23,6 +23,6 @@ export const isbnFormat: ValidatorFn = function (control) {
   if (length === 10 || length === 13) {
     return null;
   } else {
-    return { isbnFormat: true };
+    return { isbnformat: true };
   }
 };

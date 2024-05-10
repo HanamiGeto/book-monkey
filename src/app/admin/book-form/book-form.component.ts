@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Book } from 'src/app/shared/book';
+import { atLeastOneValue } from '../shared/validators';
 
 @Component({
   selector: 'bm-book-form',
@@ -65,6 +66,7 @@ export class BookFormComponent implements OnChanges {
   private buildAuthorsArray(authors: string[]) {
     return new FormArray(
       authors.map((v) => new FormControl(v, { nonNullable: true })),
+      atLeastOneValue,
     );
   }
 

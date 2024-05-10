@@ -21,6 +21,12 @@
   <p>{{ book.description }}</p>
   <img *ngIf="book.thumbnailUrl" [src]="book.thumbnailUrl" alt="Cover" />
   <a class="button" routerLink="..">Back to list</a>
-  <button class="red" (click)="removeBook(book.isbn)">Remove Book</button>
+  <button
+    class="red"
+    bmConfirm="Remove book?"
+    (confirm)="removeBook(book.isbn)"
+  >
+    Remove Book
+  </button>
   <a class="button" [routerLink]="['/admin/edit', book.isbn]">Edit Book</a>
 </div>
